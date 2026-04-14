@@ -1,0 +1,6 @@
+pyproject.toml
+ecomerce.egg-info/PKG-INFO
+ecomerce.egg-info/SOURCES.txt
+ecomerce.egg-info/dependency_links.txt
+ecomerce.egg-info/requires.txt
+ecomerce.egg-info/top_level.txt

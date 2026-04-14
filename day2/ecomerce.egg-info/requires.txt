@@ -1,0 +1,7 @@
+faker>=13.3.4
+
+[dev]
+pytest>=7.2.0
+pytest-cov>=3.0.0
+isort>=23.3.0
+sphinx>=5.0.0

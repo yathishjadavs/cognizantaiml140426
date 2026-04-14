@@ -1,0 +1,27 @@
+[project]
+name = "ecomerce"
+version = "1.0.0"
+description= "developing ecommers application"
+readme= "README.md"
+authors= [
+    {name="yathish jadav", email="yathishajadav@gmail.com"}
+]
+requires-python=">=3.8"
+# this is the prodection dependency
+dependencies = [
+    "faker>=13.3.4"
+]
+
+#devolopment dependencies
+[project.optional-dependencies]
+dev =[
+    "pytest>=7.2.0",
+    "pytest-cov>=3.0.0",
+    "black>=23.3.0",
+    "isort>=5.0.0",
+    "sphinx>=5.0.0"
+]
+# configaring tool black
+[tool.black]
+line-length= 88
+target-version = ['py313']
