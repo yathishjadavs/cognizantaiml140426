@@ -1,0 +1,4 @@
+day3env/
+__pycache__/
+*.pyc
+*.egg-info/

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "healthcare-project"
+version = "0.1.0"
+description = "Doctor and Patient Healthcare Project"
+readme = "README.md"
+requires-python = ">=3.10"
+
+authors = [
+  { name = "Yathish Jadav", email = "yathishajadav@gmail.com" }
+]
+
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
