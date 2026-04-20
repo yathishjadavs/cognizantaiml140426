@@ -1,0 +1,16 @@
+[
+  {
+    "transaction_id": "9b1dc5bc-5ab5-464c-bf71-348c7a5fd989",
+    "account_id": "ACC-C7C0BBEF",
+    "transaction_type": "CREDIT",
+    "amount": 500,
+    "timestamp": "2026-04-20 06:49:31"
+  },
+  {
+    "transaction_id": "5517716b-2c7c-4ac7-93d2-402696657acc",
+    "account_id": "ACC-C7C0BBEF",
+    "transaction_type": "DEBIT",
+    "amount": 200,
+    "timestamp": "2026-04-20 06:49:31"
+  }
+]

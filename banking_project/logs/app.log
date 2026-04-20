@@ -1,0 +1,32 @@
+2026-04-20 06:49:00 | __main__ | INFO | Logger working
+2026-04-20 06:49:31 | src.utils | INFO | Generated account ID: ACC-C7C0BBEF
+2026-04-20 06:49:31 | src.account | INFO | Account created | ID=ACC-C7C0BBEF | Holder=Yathish | Balance=1000
+2026-04-20 06:49:31 | src.credit | INFO | Credit requested | ID=ACC-C7C0BBEF | Amount=500
+2026-04-20 06:49:31 | src.storage | INFO | Account saved | ID=ACC-C7C0BBEF
+2026-04-20 06:49:31 | src.transaction | INFO | Transaction recorded | ID=9b1dc5bc-5ab5-464c-bf71-348c7a5fd989 | Account=ACC-C7C0BBEF | Type=CREDIT | Amount=500
+2026-04-20 06:49:31 | src.credit | INFO | Credit successful | ID=ACC-C7C0BBEF | Amount=500 | New Balance=1500
+2026-04-20 06:49:31 | src.debit | INFO | Debit requested | ID=ACC-C7C0BBEF | Amount=200
+2026-04-20 06:49:31 | src.storage | INFO | Account saved | ID=ACC-C7C0BBEF
+2026-04-20 06:49:31 | src.transaction | INFO | Transaction recorded | ID=5517716b-2c7c-4ac7-93d2-402696657acc | Account=ACC-C7C0BBEF | Type=DEBIT | Amount=200
+2026-04-20 06:49:31 | src.debit | INFO | Debit successful | ID=ACC-C7C0BBEF | Amount=200 | New Balance=1300
+2026-04-20 06:49:31 | src.account | INFO | Balance checked | ID=ACC-C7C0BBEF | Balance=1300
+2026-04-20 06:53:08 | __main__ | INFO | Banking CLI started
+2026-04-20 06:53:26 | src.utils | INFO | Generated account ID: ACC-45B873DD
+2026-04-20 06:53:26 | src.account | INFO | Account created | ID=ACC-45B873DD | Holder=yathish | Balance=55.0
+2026-04-20 06:53:26 | src.storage | INFO | Account saved | ID=ACC-45B873DD
+2026-04-20 06:53:37 | src.storage | ERROR | Account not found | ID=1234
+2026-04-20 06:53:37 | __main__ | ERROR | Account 1234 not found
+2026-04-20 06:53:53 | src.debit | INFO | Debit requested | ID=ACC-45B873DD | Amount=678.0
+2026-04-20 06:53:53 | src.debit | ERROR | Insufficient balance | ID=ACC-45B873DD | Balance=55.0 | Amount=678.0
+2026-04-20 06:53:53 | __main__ | ERROR | Insufficient balance
+2026-04-20 06:53:57 | src.account | INFO | Balance checked | ID=ACC-45B873DD | Balance=55.0
+2026-04-20 07:23:58 | __main__ | ERROR | could not convert string to float: 'yuy'
+Traceback (most recent call last):
+  File "/workspaces/cognizantaiml140426/banking_project/src/main.py", line 61, in main
+    account = create_account()
+              ^^^^^^^^^^^^^^^^
+  File "/workspaces/cognizantaiml140426/banking_project/src/main.py", line 18, in create_account
+    initial_balance = float(input("Enter initial balance: "))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'yuy'
+2026-04-20 07:24:02 | __main__ | INFO | Banking CLI exited
