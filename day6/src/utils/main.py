@@ -1,0 +1,109 @@
+import os
+import sys
+import aiohttp
+import asyncio
+# Add project root to Python path
+project_root = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '..', '..')
+)
+ 
+sys.path.append(project_root)
+from src.configuration.conf import Config
+ 
+ 
+async def user_service(url,id,session):
+    user_service_url = url + "users"+"/"+str(id)
+    print(user_service_url)
+    async with session.get(user_service_url) as response:
+        if response.status == 200:
+            user_data = await response.json()
+            user_data = {
+                "id": user_data["id"],
+                "name": user_data["name"],
+                "email": user_data["email"]
+            }
+            return user_data
+        else:
+            print(f"Failed to fetch user data. Status code: {response.status}")
+            return None
+ 
+async def post_service(url,id,session):
+    post_service_url = url + "posts"+"/"+str(id)
+    print(post_service_url)
+    async with session.get(post_service_url) as response:
+        if response.status == 200:
+            post_data = await response.json()
+            post_data = {
+                "id": post_data["id"],
+                "title": post_data["title"],
+                "body": post_data["body"]
+            }
+            return post_data
+        else:
+            print(f"Failed to fetch post data. Status code: {response.status}")
+            return None
+ 
+ 
+async def album_service(url,id,session):
+    album_service_url = url + "albums"+"/"+str(id)
+    print(album_service_url)
+    async with session.get(album_service_url) as response:
+        if response.status == 200:
+            album_data = await response.json()
+            album_data = {
+                "userId": album_data["userId"],
+                "id": album_data["id"],
+                "title": album_data["title"]
+            }
+            return album_data
+        else:
+            print(f"Failed to fetch album data. Status code: {response.status}")
+            return None
+ 
+async def photo_service(url,id,session):
+    photo_service_url = url + "photos"+"/"+str(id)
+    print(photo_service_url)
+    async with session.get(photo_service_url) as response:
+        if response.status == 200:
+            photo_data = await response.json()
+            photo_data = {
+                "albumId": photo_data["albumId"],
+                "id": photo_data["id"],
+                "title": photo_data["title"],
+                "url": photo_data["url"],
+                "thumbnailUrl": photo_data["thumbnailUrl"]
+            }
+            return photo_data
+        else:
+            print(f"Failed to fetch photo data. Status code: {response.status}")
+            return None
+ 
+ 
+async def dashboard(url):
+    async with aiohttp.ClientSession() as session:
+        #concurrently fetch data from all services
+        user_data,post_data,album_data,photo_data = await asyncio.gather(
+            user_service(url,1,session),
+            post_service(url,1,session),
+            album_service(url,1,session),
+            photo_service(url,1,session)
+        )
+        dashboard_data = {
+            "user": user_data,
+            "post": post_data,
+            "album": album_data,
+            "photo": photo_data
+        }
+        return dashboard_data
+if __name__ == "__main__":
+    config=Config()
+    print(config.url)
+    try:
+        result=asyncio.run(dashboard(config.url))
+        print(result)
+    except aiohttp.ClientError as e:
+        print(f"An HTTP error occurred: {e}")
+       
+    except Exception as e:
+        print(f"An error occurred: {e}")
+ 
