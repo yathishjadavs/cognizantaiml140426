@@ -10,11 +10,11 @@ class Config(BaseModel):
     
     def get_resource_path(self) -> str:
         if self.app_env.lower() == "production":
-            return f"src/resources/customers_prod.json"
+            return f"src/resources/coustomers.json"
         elif self.app_env.lower() == "development":
-            return f"src/resources/customers_dev.csv"
+            return f"src/resources/customers.csv"
         elif self.app_env.lower() == "testing":
-            return f"src/resources/customers_test.txt"
+            return f"src/resources/coustomers.txt"
         else:
             print(f"Invalid APP_ENV value: {self.app_env}")
-            return f"src/resources/customers_dev.csv"
+            return f"src/resources/customers.csv"

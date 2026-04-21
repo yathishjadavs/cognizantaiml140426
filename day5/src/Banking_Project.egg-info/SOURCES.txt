@@ -7,6 +7,8 @@ src/Banking_Project.egg-info/top_level.txt
 src/configuration/conf.py
 src/dataloaders/coustomer_csv_data_loder.py
 src/dataloaders/coustomer_data_loader.py
+src/dataloaders/customer_json_data_loader.py
+src/dataloaders/customer_txt_data_loader.py
 src/models/address.py
 src/models/company_type.py
 src/models/corporate.py
